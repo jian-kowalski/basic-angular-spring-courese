@@ -9,11 +9,8 @@ import { Course } from './../model/course';
 })
 export class CoursesService {
   private getHostURL(): string {
-    console.log(environment.apiCourses);
-    return  "http://localhost:8080/courses";
+    return environment.apiCourses;
   }
-  private readonly API = '/assets/courses.json';
-
   constructor(private httpClient: HttpClient) {}
 
   list() {
