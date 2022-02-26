@@ -16,7 +16,7 @@ import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @DataJpaTest
-@EnableJpaRepositories(basePackages = "com.jiankowalski.basicspring.datasources.entity")
+@EnableJpaRepositories(basePackages = "com.jiankowalski.basicspring.datasources")
 @Import({CourseDatasource.class, DatasourceConfiguration.class})
 class CourseDatasourceTest {
 
