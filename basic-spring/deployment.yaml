@@ -22,7 +22,7 @@ spec:
         - name: springapi
           image: ${CICD_IMAGE}:${CICD_EXECUTION_SEQUENCE}
           ports:
-            - containerPort: 80
+            - containerPort: 5000
 
 ---
 kind: Service
@@ -36,8 +36,8 @@ spec:
   type: ClusterIP
   ports:
     - protocol: TCP
-      port: 80
-      targetPort: 80
+      port: 5000
+      targetPort: 5000
 
 
 ---
@@ -56,4 +56,4 @@ spec:
           - path: /
             backend:
               serviceName: basic-spring-service
-              servicePort: 80
+              servicePort: 5000
