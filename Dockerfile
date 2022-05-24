@@ -1,13 +1,11 @@
-FROM node:12.22.9-alpine as node
+FROM node:latest as build 
 WORKDIR /app
-COPY package.json /app/
-RUN npm i npm@latest -g
-RUN npm install
-COPY ./ /app/
-ARG env=prod
+COPY package.json /app
+RUN npm install --salient
+COPY . .
 RUN npm run build
 
-# Estagio 2 - Responsável por expor nossa aplicação
-FROM nginx:1.21.3-alpine
-COPY --from=node /app/dist /usr/share/nginx/html
-COPY ./nginx-custom.conf /etc/nginx/conf.d/default.conf
+FROM nginx:alpine
+VOLUME /var/cache/nginx
+COPY --from=build app/dist/basic-angular /usr/share/nginx/html
+COPY ./config/nginx-custom.conf /etc/nginx/conf.d/default.config
