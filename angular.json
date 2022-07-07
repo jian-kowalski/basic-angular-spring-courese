@@ -109,5 +109,7 @@
       }
     }
   },
-  "defaultProject": "basic-angular"
+  "cli": {
+    "analytics": false
+  }
 }

@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiCourses: 'api/courses',
+  apiCourses: 'assets/courses.json',
 };
 
 /*
